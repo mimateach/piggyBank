@@ -1,11 +1,19 @@
 <script setup lang="ts"></script>
 <template>
   <main>
-    <div id="menu">
-      <div class="menuSection menuHome">Inicio</div>
-      <div class="menuSection menuAdd">+</div>
-      <div class="menuSection menuWithdraw">-</div>
-      <div class="menuSection menuSavings">Movimientos</div>
+    <div id="menu" class="fixed-bottom">
+      <div class="menuSection menuHome">
+        <img id="name" src="../assets/homeBeige.svg">
+      </div>
+      <div class="menuSection menuAdd">
+        <img id="name" src="../assets/navBarPlus.svg">
+      </div>
+      <div class="menuSection menuWithdraw">
+        <img id="name" src="../assets/navBarLess.svg">
+      </div>
+      <div class="menuSection menuSavings">
+        <img id="name" src="../assets/navBarTransfer.svg">
+      </div>
     </div>
   </main>
 </template>
@@ -25,21 +33,21 @@
   background-color: white;
   height: 10vh;
 }
-.menuSection {
-  width: 15vw;
-  height: 7vh;
-  border-radius: 50%;
+.menuSection img {
+width: 6vw;
 }
 .menuHome {
-  background-color: var(--color-palette-2);
 }
 .menuAdd {
-  background-color: var(--color-palette-3);
 }
 .menuWithdraw {
-  background-color: var(--color-palette-4);
 }
 .menuSavings {
-  background-color: var(--color-palette-5);
+}
+
+@media (max-width: 1000px){
+.menuSection img {
+width: 10vw;
+}
 }
 </style>

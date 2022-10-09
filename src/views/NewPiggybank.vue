@@ -15,8 +15,12 @@
       <input type="text" class="targetInput" id="formMoves" />
     </form>
     <div class="editDelete">
-      <div class="edit icon"><img src="../assets/editIcon.svg"/></div>
-      <div class="delete icon"><img src="../assets/deleteIcon.svg" /></div>
+      <div class="icon accept">
+        <button src="../assets/editIcon.svg">ACEPTAR</button>
+      </div>
+      <div class="icon cancel">
+        <button src="../assets/deleteIcon.svg">CANCELAR</button>
+      </div>
     </div>
   </main>
 </template>
@@ -29,8 +33,9 @@ main {
   align-items: center;
 }
 h2 {
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   font-weight: 700;
+  font-size: 4vh;
   margin: 5vh 0 2vh 0;
 }
 form {
@@ -41,9 +46,10 @@ form {
 }
 label {
   margin: 2vh 0 2vh 0;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   font-size: 2.5vh;
 }
+
 input {
   width: 65vw;
   height: 10vh;
@@ -54,10 +60,27 @@ input {
   display: flex;
   justify-content: space-around;
   margin: 3vh 0 3vh 0;
-  width: 30vw;
+  width: 70vw;
 }
-img {
-  width: 10vw;
+
+button {
+  width: 15vw;
+  height: 6vh;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 2vh;
+  font-weight: 700;
+  font-family: "Arimo", sans-serif;
+}
+
+.accept {
+  background-color: var(--color-palette-5);
+  border-radius: 3vh;
+}
+.cancel {
+  background-color: var(--color-palette-3);
+  border-radius: 3vh;
 }
 
 @media (min-width: 700px) {
