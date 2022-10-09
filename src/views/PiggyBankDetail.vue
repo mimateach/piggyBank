@@ -1,6 +1,9 @@
-<script setup lang="ts">
+<script setup>
 import NavBar from "../components/NavBar.vue";
 import Header from "../components/Header.vue";
+import { RouterLink } from 'vue-router';
+
+
 </script>
 
 <template>

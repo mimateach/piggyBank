@@ -1,9 +1,9 @@
-<script setup lang="ts"></script>
+<script setup></script>
 
 <template>
   <div id="header">
     <div id="logo"><img src="../assets/logo.svg"></div>
-    <div id="home"><img src="../assets/homeWhite.svg"/></div>
+    <RouterLink to="/"><div id="home"><img src="../assets/homeWhite.svg"/></div></RouterLink>
 <!--         <div id="moneyCount"></div>
  -->  </div>
 </template>

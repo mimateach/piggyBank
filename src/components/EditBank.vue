@@ -1,17 +1,30 @@
 <script setup>
 import HeaderSecondary from "../components/HeaderSecondary.vue";
 import router from "@/router";
+import { onMounted, ref } from "vue";
 import { PiggyBankService } from "../service/PiggyBanksService";
-import { ref } from "vue";
 
-const newBank = ref({
+const props = defineProps({
+  id: String,
+});
+
+let banks = [];
+
+const editBank = ref({
+  id: props.id,
   name: "",
   quantity: "",
   dueDate: "",
 });
-const create = async (e) => {
-  e.preventDefault();
-  await PiggyBankService.postNewBank(newBank.value);
+onMounted(async () => {
+  banks.value = await PiggyBankService.getBankById(props.id);
+  editBank.value.name = banks.value.name;
+  editBank.value.quantity = banks.value.quantity;
+  editBank.value.dueDate = banks.value.dueDate;
+});
+const save = async (event) => {
+  event.preventDefault();
+  await PiggyBankService.updateBank(editBank.value);
   router.push("/");
 };
 </script>
@@ -19,19 +32,31 @@ const create = async (e) => {
 <template>
   <HeaderSecondary />
   <main>
-    <div>
-      <h2 class="title">Crea una nueva hucha</h2>
-    </div>
-    <form id="detail" @submit="create">
-      <label for="formMoves savingsTarget">Nombre:</label>
-      <input type="text" class="targetInput" id="formName" />
+    <form id="detail" @submit="save">
+      <label for="formName savingsName" class="title">Nombre:</label>
+      <input
+        type="text"
+        class="targetInput"
+        id="formTarget"
+        v-model="editBank.value.name"
+      />
       <label for="formTarget savingsTarget">Objetivo:</label>
-      <input type="text" class="targetInput" id="formTarget" />
+      <input
+        type="text"
+        class="targetInput"
+        id="formTarget"
+        v-model="editBank.value.quantity"
+      />
       <label for="formDate savingsTarget">Fecha:</label>
-      <input type="date" class="targetInput" id="formDate" />
+      <input
+        type="date"
+        class="targetInput"
+        id="formDate"
+        v-model="editBank.value.dueDate"
+      />
       <div class="acceptCancel">
         <div class="icon accept">
-          <button type="submit" src="../assets/editIcon.svg">ACEPTAR</button>
+          <button type="button" @click="submit" src="../assets/editIcon.svg">ACEPTAR</button>
         </div>
         <div class="icon cancel">
           <button type="button" @click="router.go(-1)">CANCELAR</button>
@@ -48,11 +73,9 @@ main {
   flex-direction: column;
   align-items: center;
 }
-
-h2 {
+.title {
   font-family: "Arimo", sans-serif;
   font-weight: 700;
-  font-size: 4vh;
   margin: 5vh 0 2vh 0;
 }
 form {
@@ -66,16 +89,11 @@ label {
   font-family: "Arimo", sans-serif;
   font-size: 2.5vh;
 }
-
 input {
   width: 65vw;
   height: 10vh;
   border: 0.2vh solid var(--color-palette-2);
   border-radius: 4vh;
-  font-family: "Arimo", sans-serif;
-  font-size: 2vh;
-  padding: 3vw;
-  text-align: center;
 }
 .acceptCancel {
   display: flex;
@@ -103,13 +121,11 @@ button {
   background-color: var(--color-palette-3);
   border-radius: 3vh;
 }
-
 @media (min-width: 700px) {
   img {
     width: 5vw;
   }
 }
-
 @media (max-width: 750px) {
   button {
     width: 25vw;

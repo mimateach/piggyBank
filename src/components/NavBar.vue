@@ -1,18 +1,23 @@
-<script setup lang="ts"></script>
+import { RouterLink } from 'vue-router';
+<script setup>
+import { RouterLink } from "vue-router";
+</script>
 <template>
   <main>
     <div id="menu" class="fixed-bottom">
       <div class="menuSection menuHome">
-        <img id="name" src="../assets/homeBeige.svg">
+        <RouterLink to="/"
+          ><img id="name" src="../assets/homeBeige.svg"
+        /></RouterLink>
       </div>
       <div class="menuSection menuAdd">
-        <img id="name" src="../assets/navBarPlus.svg">
+        <img id="name" src="../assets/navBarPlus.svg" />
       </div>
       <div class="menuSection menuWithdraw">
-        <img id="name" src="../assets/navBarLess.svg">
+        <img id="name" src="../assets/navBarLess.svg" />
       </div>
       <div class="menuSection menuSavings">
-        <img id="name" src="../assets/navBarTransfer.svg">
+        <img id="name" src="../assets/navBarTransfer.svg" />
       </div>
     </div>
   </main>
@@ -34,7 +39,7 @@
   height: 10vh;
 }
 .menuSection img {
-width: 6vw;
+  width: 6vw;
 }
 .menuHome {
 }
@@ -45,9 +50,9 @@ width: 6vw;
 .menuSavings {
 }
 
-@media (max-width: 1000px){
-.menuSection img {
-width: 10vw;
-}
+@media (max-width: 1000px) {
+  .menuSection img {
+    width: 10vw;
+  }
 }
 </style>

@@ -4,7 +4,6 @@ import PiggyBankDetail from "../views/PiggyBankDetail.vue";
 import PBEdit from "../views/PBEdit.vue";
 import NewPiggybank from "../views/NewPiggybank.vue";
 
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -23,12 +22,12 @@ const router = createRouter({
       name: "create",
       component: NewPiggybank,
     },
-        {
+    {
       path: "/edit",
       name: "edit",
       component: PBEdit,
     },
-/*     {
+    /*     {
       path: "/delete",
       name: "detail",
       component: PiggyBankDetail,
