@@ -1,20 +1,22 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import HeaderSecondary from "../components/HeaderSecondary.vue";
+</script>
 
 <template>
-  <Header />
+  <HeaderSecondary />
   <main>
     <div>
-      <h2 class="title">Viaje a Nueva York</h2>
+        <h2 class="title">Viaje a Nueva York</h2>
     </div>
     <form id="detail">
+      <label for="formMoves savingsTarget">Nombre:</label>
+      <input type="text" class="targetInput" id="formName" />
       <label for="formTarget savingsTarget">Objetivo:</label>
       <input type="text" class="targetInput" id="formTarget" />
       <label for="formDate savingsTarget">Fecha:</label>
-      <input type="text" class="targetInput" id="formDate" />
-      <label for="formMoves savingsTarget">Movimientos:</label>
-      <input type="text" class="targetInput" id="formMoves" />
+      <input type="date" class="targetInput" id="formDate" />
     </form>
-    <div class="editDelete">
+    <div class="acceptCancel">
       <div class="icon accept">
         <button src="../assets/editIcon.svg">ACEPTAR</button>
       </div>
@@ -32,6 +34,7 @@ main {
   flex-direction: column;
   align-items: center;
 }
+
 h2 {
   font-family: "Arimo", sans-serif;
   font-weight: 700;
@@ -55,11 +58,15 @@ input {
   height: 10vh;
   border: 0.2vh solid var(--color-palette-2);
   border-radius: 4vh;
+  font-family: 'Arimo', sans-serif;
+  font-size: 2vh;
+  padding: 3vw;
+  text-align: center;
 }
-.editDelete {
+.acceptCancel {
   display: flex;
   justify-content: space-around;
-  margin: 3vh 0 3vh 0;
+  margin: 4vh 0 3vh 0;
   width: 70vw;
 }
 
@@ -83,9 +90,17 @@ button {
   border-radius: 3vh;
 }
 
+
 @media (min-width: 700px) {
   img {
     width: 5vw;
   }
+}
+
+@media (max-width: 750px){
+    button {
+        width: 25vw;
+        font-size: 1.5vh;
+    }
 }
 </style>

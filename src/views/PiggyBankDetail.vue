@@ -1,4 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import NavBar from "../components/NavBar.vue";
+import Header from "../components/Header.vue";
+</script>
 
 <template>
   <Header />
@@ -58,6 +61,10 @@ input {
 }
 img {
   width: 10vw;
+}
+
+#NavBar {
+  margin-bottom: 0;
 }
 
 @media (min-width: 700px) {

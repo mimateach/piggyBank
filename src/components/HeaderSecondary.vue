@@ -3,6 +3,7 @@
 <template>
   <div id="header">
     <div id="logo"><img src="../assets/logo.svg"></div>
+    <div id="home"><img src="../assets/homeWhite.svg"/></div>
 <!--         <div id="moneyCount"></div>
  -->  </div>
 </template>
@@ -15,7 +16,11 @@
   padding: 2vh;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
+#home img {
+height: 6vh;
 
+}
 </style>

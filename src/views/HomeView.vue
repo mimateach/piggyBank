@@ -2,6 +2,7 @@
 import NavBar from "../components/NavBar.vue";
 import { ref, onMounted } from "vue";
 import { PiggyBankService } from "../service/PiggyBanksService";
+import Header from "../components/Header.vue";
 const BankData = ref([]);
 onMounted(async () => {
   BankData.value = await PiggyBankService.getAllPiggyBanks();
@@ -10,6 +11,7 @@ onMounted(async () => {
 
 <template>
   <main>
+    <Header/>
     <section>
       <div id="appName">
         <img id="name" src="../assets/logoLarge.svg" />

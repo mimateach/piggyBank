@@ -1,7 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import HeaderSecondary from "../components/HeaderSecondary.vue";</script>
 
 <template>
-  <Header />
+  <HeaderSecondary />
   <main>
     <div>
       <h2 class="title">Viaje a Nueva York</h2>
